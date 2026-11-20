@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.output/
+playwright-report/
+test-results/
+coverage/
+*.zip
+assets/icon.html
+.DS_Store
+*.log
+.wxt/
