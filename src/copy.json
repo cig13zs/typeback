@@ -1,0 +1,9 @@
+{
+  "brand": "Typeback",
+  "storeName": "Typeback: Recover Lost Form Text",
+  "shortDescription": "Lost a long comment or email to a crash or closed tab? Typeback saves what you type and brings it back. Private, no passwords.",
+  "chipLabel": "Restore typed text",
+  "unlockChip": "Unlock saved text",
+  "restoreMenu": "Restore typed text…",
+  "shortcutDescription": "Restore typed text into the focused field"
+}

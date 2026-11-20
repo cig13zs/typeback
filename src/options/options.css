@@ -1,0 +1,51 @@
+.page { max-width: 760px; margin: 0 auto; padding: 32px 22px 72px; }
+
+.hero { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 18px; }
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: 42px;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  font-weight: 560;
+}
+
+.hero .tag {
+  color: var(--pine);
+  font-weight: 700;
+  margin: 6px 0 8px;
+}
+
+.stack { display: flex; flex-direction: column; gap: 12px; }
+
+.switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.switch input { width: 18px; height: 18px; accent-color: var(--pine); }
+
+.inline { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+.inline input[type="number"] { width: 88px; }
+
+.bar {
+  height: 8px;
+  background: var(--line);
+  border-radius: 99px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+
+.bar span { display: block; height: 100%; background: var(--pine); width: 0; }
+
+.enc { display: flex; flex-direction: column; gap: 8px; }
+
+.shortcut {
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
+footer.note { margin-top: 18px; color: var(--muted); font-size: 12.5px; }

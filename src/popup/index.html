@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Typeback</title>
+  </head>
+  <body>
+    <main class="popup">
+      <header class="top">
+        <div class="brand">
+          <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" rx="8" fill="#1F4D45" />
+            <path d="M22 16H12.2" stroke="#F6F1E7" stroke-width="2.6" stroke-linecap="round" />
+            <path d="M16.2 10.2 10.2 16l6 5.8" fill="none" stroke="#F6F1E7" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <div>
+            <div class="wordmark">Typeback</div>
+            <div class="tag">Recover lost form text</div>
+          </div>
+        </div>
+        <button class="icon-btn" id="options" type="button">Options</button>
+      </header>
+      <p class="lede" id="lede"></p>
+      <div class="scopes" role="tablist" aria-label="Which drafts">
+        <button type="button" id="scope-page" role="tab" aria-pressed="true">This page</button>
+        <button type="button" id="scope-all" role="tab" aria-pressed="false">All pages</button>
+      </div>
+      <div class="search">
+        <input class="field" id="q" type="search" placeholder="Search drafts" aria-label="Search drafts" />
+      </div>
+      <div class="banner" id="pause-banner" hidden>
+        <strong>Typeback is paused.</strong>
+        <span>Nothing new is being saved.</span>
+        <button class="btn" id="resume" type="button">Resume saving</button>
+      </div>
+      <form class="banner" id="unlock-banner" hidden>
+        <strong>Drafts are encrypted.</strong>
+        <span>Enter the passphrase to read and restore them on this device.</span>
+        <div class="row">
+          <input class="field" id="unlock-pass" type="password" autocomplete="current-password" placeholder="Passphrase" aria-label="Passphrase" />
+          <button class="btn" id="unlock" type="submit">Unlock</button>
+        </div>
+      </form>
+      <p class="status" id="status" role="status"></p>
+      <div class="list" id="list"></div>
+      <footer class="foot">
+        <span id="shortcut"></span>
+        <span id="count"></span>
+      </footer>
+    </main>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

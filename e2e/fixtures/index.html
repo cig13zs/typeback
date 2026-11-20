@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Workshop notes</title>
+    <style>
+      :root { color-scheme: light; }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: #efe7da; color: #241c16; }
+      body { font: 18px/1.5 Georgia, "Iowan Old Style", serif; }
+      main {
+        width: min(760px, calc(100% - 80px));
+        margin: 0 auto;
+        padding: 54px 0 40px;
+      }
+      .kicker {
+        font-family: "Segoe UI", sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #1f4d45;
+        margin: 0 0 12px;
+      }
+      h1 {
+        font-size: 56px;
+        line-height: 0.98;
+        font-weight: 500;
+        letter-spacing: -0.03em;
+        margin: 0 0 18px;
+      }
+      .standfirst { font-size: 22px; color: #4d433a; margin: 0 0 28px; }
+      form { display: flex; flex-direction: column; gap: 8px; }
+      label { font-family: "Segoe UI", sans-serif; font-size: 13px; font-weight: 700; }
+      textarea, input[type="text"] {
+        width: 100%;
+        border: 1px solid #ddcfc0;
+        background: #fffaf3;
+        border-radius: 12px;
+        padding: 14px 16px;
+        font: 16px/1.45 "Segoe UI", sans-serif;
+        color: #241c16;
+      }
+      textarea { min-height: 150px; resize: vertical; }
+      .below { margin-top: 100vh; padding: 24px; font-family: "Segoe UI", sans-serif; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="kicker">Workshop notes</p>
+      <h1>Keep the sentence you almost sent.</h1>
+      <p class="standfirst">
+        A comment, a mail, a reply. The tab can close. The draft does not have to.
+      </p>
+      <form id="note">
+        <label for="comment">Comment</label>
+        <textarea id="comment" name="comment" placeholder="Write a comment"></textarea>
+      </form>
+    </main>
+    <div class="below">
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" />
+      <label for="card">Card number</label>
+      <input id="card" name="card" type="text" autocomplete="cc-number" />
+      <div id="shadow-host"></div>
+      <iframe id="frame" title="Nested note" src="/frame.html"></iframe>
+    </div>
+    <script>
+      const host = document.querySelector('#shadow-host');
+      const shadow = host.attachShadow({ mode: 'open' });
+      shadow.innerHTML = '<label>Shadow note <textarea id="shadow-note" name="shadow-note"></textarea></label>';
+    </script>
+  </body>
+</html>

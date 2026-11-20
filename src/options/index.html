@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Typeback options</title>
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <svg class="brand-mark" viewBox="0 0 32 32" width="42" height="42" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#1F4D45" />
+          <path d="M22 16H12.2" stroke="#F6F1E7" stroke-width="2.6" stroke-linecap="round" />
+          <path d="M16.2 10.2 10.2 16l6 5.8" fill="none" stroke="#F6F1E7" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <div>
+          <h1>Typeback</h1>
+          <p class="tag">Recover lost form text</p>
+          <p class="lede" id="lede"></p>
+        </div>
+      </header>
+      <div class="stack">
+        <section class="card">
+          <h2>Saving</h2>
+          <p class="help">While paused, nothing new is saved. Drafts already on this device stay put.</p>
+          <label class="switch">
+            <input id="paused" type="checkbox" />
+            Pause Typeback
+          </label>
+        </section>
+        <section class="card">
+          <h2>Retention</h2>
+          <p class="help">Pinned drafts are kept until you delete them. Use 0 to keep every draft.</p>
+          <div class="inline">
+            <label for="retention">Keep drafts for</label>
+            <input class="field" id="retention" type="number" min="0" max="3650" step="1" />
+            <span>days</span>
+          </div>
+        </section>
+        <section class="card">
+          <h2>Encryption</h2>
+          <p class="help">
+            Optional AES-GCM encryption before drafts are written to disk. The key is derived with PBKDF2
+            and the passphrase is never stored. It stays in memory until you quit the browser. If you
+            forget it, encrypted drafts cannot be read.
+          </p>
+          <div id="enc-off" class="enc" hidden>
+            <input class="field" id="pass1" type="password" autocomplete="new-password" placeholder="New passphrase" aria-label="New passphrase" />
+            <input class="field" id="pass2" type="password" autocomplete="new-password" placeholder="Repeat passphrase" aria-label="Repeat passphrase" />
+            <button class="btn" id="enable" type="button">Encrypt saved text</button>
+          </div>
+          <div id="enc-locked" class="enc" hidden>
+            <p>Encryption is on, and this browser session is locked. New typing waits in memory until you unlock.</p>
+            <div class="inline">
+              <input class="field" id="unlock-pass" type="password" autocomplete="current-password" placeholder="Passphrase" aria-label="Passphrase" />
+              <button class="btn" id="unlock" type="button">Unlock</button>
+            </div>
+          </div>
+          <div id="enc-on" class="enc" hidden>
+            <p>Encryption is on for this browser session. Drafts on disk are ciphertext.</p>
+            <div class="inline">
+              <button class="btn ghost" id="lock" type="button">Lock</button>
+            </div>
+            <div class="inline">
+              <input class="field" id="disable-pass" type="password" autocomplete="current-password" placeholder="Current passphrase" aria-label="Current passphrase" />
+              <button class="btn ghost" id="disable" type="button">Turn encryption off</button>
+            </div>
+            <div class="inline">
+              <input class="field" id="next-pass" type="password" autocomplete="new-password" placeholder="New passphrase" aria-label="New passphrase" />
+              <button class="btn ghost" id="change" type="button">Change passphrase</button>
+            </div>
+          </div>
+        </section>
+        <section class="card">
+          <h2>Sites to skip</h2>
+          <p class="help">
+            One domain per line. Subdomains are included. Banking and payment sites start off so
+            Typeback does not keep what you type there. Add or remove any host.
+          </p>
+          <textarea class="area" id="blocklist" spellcheck="false" aria-label="Blocked sites"></textarea>
+          <div class="inline" style="margin-top: 10px">
+            <button class="btn" id="save-blocklist" type="button">Save blocklist</button>
+            <button class="btn ghost" id="reset-blocklist" type="button">Restore defaults</button>
+          </div>
+        </section>
+        <section class="card">
+          <h2>Backup</h2>
+          <p class="help">
+            Export is a JSON file of drafts and settings. The passphrase is not included. Importing
+            replaces drafts on this device. An encrypted backup stays encrypted.
+          </p>
+          <div class="inline">
+            <button class="btn" id="export" type="button">Export JSON</button>
+            <button class="btn ghost" id="import" type="button">Import JSON</button>
+            <input id="import-file" type="file" accept="application/json,.json" hidden />
+          </div>
+        </section>
+        <section class="card">
+          <h2>Storage</h2>
+          <p id="usage-label" class="help">Checking local storage…</p>
+          <div class="bar" aria-hidden="true"><span id="usage-bar"></span></div>
+          <button class="btn danger" id="clear" type="button">Delete unpinned drafts</button>
+        </section>
+        <section class="card">
+          <h2>Shortcut</h2>
+          <p class="help">Shows recent drafts for the focused field. Change it at chrome://extensions/shortcuts.</p>
+          <p class="shortcut" id="shortcut">…</p>
+        </section>
+      </div>
+      <p class="status" id="status" role="status"></p>
+      <footer class="note" id="about"></footer>
+    </main>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
